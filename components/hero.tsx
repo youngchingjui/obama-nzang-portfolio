@@ -12,9 +12,9 @@ export function Hero() {
   }
 
   // Unsplash image: https://unsplash.com/photos/an-aerial-view-of-a-lush-green-rice-field-9lh7H8AW39k
-  // Use the official download endpoint which 302 redirects to the image CDN
-  const heroBgUrl =
-    "https://unsplash.com/photos/9lh7H8AW39k/download?force=true&w=2400"
+  // Use the Source endpoint for direct embedding (stable, no download redirect)
+  // Size picked to cover large displays while remaining efficient
+  const heroBgUrl = "https://source.unsplash.com/9lh7H8AW39k/2400x1600"
 
   return (
     <section
