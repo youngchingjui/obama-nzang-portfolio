@@ -1,6 +1,5 @@
 import { Card } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Briefcase, MapPin, Calendar } from "lucide-react"
+import { Briefcase, MapPin, Calendar, Clock } from "lucide-react"
 
 export function Experience() {
   const experiences = [
@@ -115,9 +114,6 @@ export function Experience() {
                         </div>
                       </div>
                     </div>
-                    <Badge variant="secondary" className="self-start">
-                      {exp.type}
-                    </Badge>
                   </div>
 
                   <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
@@ -128,6 +124,10 @@ export function Experience() {
                     <div className="flex items-center gap-2">
                       <Calendar className="h-4 w-4" />
                       <span>{exp.period}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Clock className="h-4 w-4" />
+                      <span>{exp.type}</span>
                     </div>
                   </div>
 
@@ -147,3 +147,4 @@ export function Experience() {
     </section>
   )
 }
+
