@@ -3,7 +3,8 @@ import { Badge } from "@/components/ui/badge"
 import { Languages, Code, Wrench, Users } from "lucide-react"
 
 export function Skills() {
-  const skillCategories = [
+  type Skill = { name: string; level?: string }
+  const skillCategories: { icon: typeof Languages; title: string; skills: Skill[] }[] = [
     {
       icon: Languages,
       title: "Languages",
@@ -86,3 +87,4 @@ export function Skills() {
     </section>
   )
 }
+
