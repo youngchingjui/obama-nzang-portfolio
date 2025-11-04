@@ -11,9 +11,29 @@ export function Hero() {
     }
   }
 
+  // Unsplash image: https://unsplash.com/photos/an-aerial-view-of-a-lush-green-rice-field-9lh7H8AW39k
+  // Use the Source endpoint for direct embedding (stable, no download redirect)
+  // Size picked to cover large displays while remaining efficient
+  const heroBgUrl = "https://source.unsplash.com/9lh7H8AW39k/2400x1600"
+
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-16">
-      <div className="container mx-auto max-w-5xl">
+    <section
+      id="hero"
+      className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-16 overflow-hidden"
+    >
+      {/* Background image layer */}
+      <div
+        className="pointer-events-none absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage: `url(${heroBgUrl})`,
+          filter: "grayscale(10%) saturate(60%) brightness(0.6)",
+        }}
+      />
+      {/* Contrast overlay (light/dark aware) */}
+      <div className="pointer-events-none absolute inset-0 bg-white/60 dark:bg-black/60" />
+
+      {/* Content */}
+      <div className="relative z-10 container mx-auto max-w-5xl">
         <div className="space-y-8">
           <div className="space-y-4">
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-serif font-bold text-foreground text-balance">
@@ -22,7 +42,7 @@ export function Hero() {
             <p className="text-xl sm:text-2xl text-muted-foreground font-light">Multilingual Engineer & Translator</p>
           </div>
 
-          <p className="text-lg sm:text-xl text-foreground/80 max-w-2xl leading-relaxed">
+          <p className="text-lg sm:text-xl text-foreground/90 max-w-2xl leading-relaxed">
             Civil engineering graduate student, Spanish translator, and educator bridging technical expertise with
             linguistic versatility across international markets.
           </p>
@@ -55,3 +75,4 @@ export function Hero() {
     </section>
   )
 }
+
